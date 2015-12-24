@@ -13,23 +13,23 @@ class Items_model extends CI_Model {
 
 	private function _get_datatables_query()
 	{
-		
+
 		$this->db->from($this->table);
 
 		$i = 0;
-	
-		foreach ($this->column as $item) 
+
+		foreach ($this->column as $item)
 		{
 			if($_POST['search']['value'])
 				($i===0) ? $this->db->like($item, $_POST['search']['value']) : $this->db->or_like($item, $_POST['search']['value']);
 			$column[$i] = $item;
 			$i++;
 		}
-		
+
 		if(isset($_POST['order']))
 		{
 			$this->db->order_by($column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
-		} 
+		}
 	}
 
 	function get_datatables()

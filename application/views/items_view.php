@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<head> 
+	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Ajax CRUD with Bootstrap modals and Datatables</title>
 		<link href="<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
 		<link href="<?php echo base_url('assets/plugins/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
-	</head> 
+	</head>
 	<body>
 
 	<div class="container">
@@ -48,20 +48,20 @@
 	<script type="text/javascript">
 
 		$(document).ready(function() {
-			table = $('#table').DataTable({ 
-				
+			table = $('#table').DataTable({
+
 				"processing": true,
 				"serverSide": true,
-				
+
 				"ajax": {
 						"url": "<?php echo site_url('items/ajax_list')?>",
 						"type": "POST"
 				},
 
 				"order": [[ 0, "desc" ]],
-				
+
 				"columnDefs": [
-				{ 
+				{
 					"targets": [ 0 ],
 					"visible": false,
 					"orderable": false,
@@ -70,7 +70,7 @@
 
 			});
 		});
-		
+
 		</script>
 	</body>
 </html>
