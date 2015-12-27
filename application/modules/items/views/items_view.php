@@ -54,7 +54,7 @@
 				"serverSide": true,
 
 				"ajax": {
-						"url": "<?php echo site_url('items/ajax_list')?>",
+						"url": "<?php echo site_url('items/ajax_list_items')?>",
 						"type": "POST"
 				},
 

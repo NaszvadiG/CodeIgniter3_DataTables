@@ -1,12 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Items extends CI_Controller {
+class Items extends MX_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('items_model','items');
 	}
 
 	public function index()
@@ -14,8 +13,10 @@ class Items extends CI_Controller {
 		$this->load->view('items_view');
 	}
 
-	public function ajax_list()
+	public function ajax_list_items()
 	{
+		$this->load->model('items_model','items');
+
 		$list = $this->items->get_datatables();
 		$data = array();
 		$no   = $_POST['start'];
