@@ -5,11 +5,15 @@ class Items_model extends MY_Model {
 
 	public $table  = 'items';
 	public $column = array(
-					'id',
-					'supp_code',
-					'sku',
-					'item_name',
-					'price',
-					'sold_price'
+					'items.id',
+					'supplier.supp_code',
+					'items.sku',
+					'items.item_name',
+					'items.price',
+					'items.sold_price'
 				);
+
+    public function _jointable() {
+        $this->db->join('supplier', 'items.supp_code = supplier.supp_code');
+    }
 }

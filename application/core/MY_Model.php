@@ -10,8 +10,9 @@ class MY_Model extends CI_Model {
         parent::__construct();
     }
 
-    public function _get_datatables_query()
+    private function _get_datatables_query()
 	{
+        $this->db->select($this->column);
 		$this->db->from($this->table);
 
 		$i = 0;
@@ -24,11 +25,15 @@ class MY_Model extends CI_Model {
 			$i++;
 		}
 
+        $this->_jointable();
+
 		if(isset($_POST['order']))
 		{
 			$this->db->order_by($column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
 		}
 	}
+
+    public function _jointable() {}
 
 	public function get_datatables()
 	{
